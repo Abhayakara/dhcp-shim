@@ -1,0 +1,19 @@
+This repo contains a set of code that can be used to build relay
+agents that modify DHCPv4 and DHCPv6 packets in transit.  This is not
+entirely compatible with the DHCP protocol and in particular will
+break in the presence of DHCP signing.   Nevertheless, this can be
+useful for testing and prototyping.
+
+6relay.c contains a DHCPv6 relay agent that does some magic to
+allow a single prefix allocation on the DHCPv6 server to be replicated
+as several colored prefixes for the client.
+
+tra6to4.c is a DHCPv4 relay agent that relays DHCPv4 packets
+over IPv6, in order to support an old version of DHCPv4-over-IPv6
+that didn't get standardized.
+
+This code may or may not be of any use at all to anyone other than
+its original users, but if you find it helpful, please use it and
+let us know.  You will almost certainly have to hack it to make it
+do something--it is unlikely that what it does at the moment is
+what you need.
